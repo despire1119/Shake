@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>chat for socket</title>
+	<script type="text/javascript" src="http://res.suning.cn/public/v3/js/jquery.js"></script>
+	<script type="text/javascript" src="http://www.rubyless.com:3200/socket.io/socket.io.js"></script>
+</head>
+
+<body>
+<div id="chatForm">
+	你的昵称：<input type="text" id="nickName" value=""/><br>
+	聊天内容：<textarea id="chatContent"></textarea><br>
+	<button onclick="submit();">发送</button>
+</div>
+<script type="text/javascript">
+	// 渲染页面
+	function render(data){
+		var temp = data;
+		$('<li><label>'+temp.name+'</label>：<span>'+temp.content+'</span></li>').appendTo($('#chatList'));
+	}
+	var socket = io.connect('http://www.rubyless.com:3200');
+
+	// 接收数据后渲染
+	socket.on('message', function(data){
+		render(data);
+	});
+
+	function submit(){
+		var nickName = $('#nickName').val(),
+				content = $('#chatContent').val();
+//				console.log(nickName+"--"+content);
+		// 向服务端发送数据
+		if(nickName.length == 0){
+			alert('昵称不能为空！');
+			return;
+		}
+		if(content.length == 0){
+			alert('聊天内容不能为空！');
+			return;
+		}
+		socket.emit('pageData', {name: nickName, content: content});
+
+		$('#chatContent').val('');
+	}
+
+
+	// 用户提交数据
+	$(function(){
+		$('#chatContent').on('keydown',function(e){
+			var ev = document.all ? window.event : e;
+			if(ev.keyCode==13) {
+				submit();
+				e.preventDefault();
+			}
+		})
+	});
+</script>
+<ul id="chatList"></ul>
+</body>
+</html>

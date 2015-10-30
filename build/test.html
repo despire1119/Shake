@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表解锁</title>
+</head>
+<body>
+	<button id="unlock">解锁表</button>
+	<script src="./assets/js/jquery.min.js"></script>
+	<script src="./assets/js/purl.js"></script>
+	<script src="./assets/js/global.js"></script>
+	<script>
+	var params = $.url().param();
+	$('#unlock').on('click', function(){
+		$.ajax({
+			type: 'get',
+			url: g.api.unlockTable + '&code=' + params.code + '&id=' + params.id + '&callback=?',
+			async: false,
+			dataType: 'jsonp',
+			success: function(data){
+				console.log(data);
+			}
+		});
+	});
+	</script>
+</body>
+</html>

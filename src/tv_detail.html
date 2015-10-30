@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>云店摇一摇</title>
+    <meta name="keywords" content="云店摇一摇" />
+    <meta name="description" content="云店摇一摇" />
+    <link rel="shortcut icon" href="http://www.suning.com/favicon.ico" type="image/x-icon"/>
+    <!-- build:css ./assets/css/hudongtv.css?v=201509021 -->
+    <link rel="stylesheet" href="css/hudongtv.scss?v=201509021" />
+    <!-- endbuild -->
+</head>
+<body>
+    <div class="wrapper">
+        <div class="title">
+        <p><b class="l l-arrow"></b><span class="l" id="title"></span><b class="l r-arrow"></b></p>
+        <img src="temp/title.png" alt="活动标题" >
+        </div>
+        <p class="num">
+            <span>当前<strong id="joinNumber">0</strong>人已报名<b id="start" >开始游戏</b></span>
+        </p>
+        <div class="line"></div>
+        <div class="detail clearfix">
+            <div class="ecode l" id="qrcode">
+            </div>
+            <div class="detail-con l">
+                <h1>活动规则</h1>
+                <p id="actRule"></p>
+                <div class="award clearfix" id="awards">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="http://res.suning.cn/public/v3/js/jquery.js"></script>
+    <!-- build:js ./assets/js/jquery.qrcode.min.js -->
+    <script src='js/jquery.qrcode.min.js'></script>
+    <!-- endbuild -->
+    <!-- build:js ./assets/js/js.cookie.js -->
+    <script src='js/js.cookie.js'></script>
+    <!-- endbuild -->
+    <!-- build:js ./assets/js/purl.js -->
+    <script src='js/purl.js'></script>
+    <!-- endbuild -->
+    <!-- build:js ./assets/js/global.js?v=201509024 -->
+    <script src='js/global.js?v=201509024'></script>
+    <!-- endbuild -->
+    <script src='http://www.rubyless.com:3200/socket.io/socket.io.js'></script>
+    <!-- build:js ./assets/js/socket.js?v=201509021 -->
+    <script src='js/socket.js?v=201509021'></script>
+    <!-- endbuild -->
+    
+    <!-- build:js ./assets/js/tv_entrance.js?v=201509026 -->
+    <script src='js/tv_entrance.js?v=201509026'></script>
+    <!-- endbuild -->
+</body>
+</html>
+

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>云店摇一摇</title>
+    <meta name="keywords" content="&#x4E91;&#x5E97;&#x6447;&#x4E00;&#x6447;">
+    <meta name="description" content="&#x4E91;&#x5E97;&#x6447;&#x4E00;&#x6447;">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link rel="shortcut icon" href="http://www.suning.com/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./assets/css/hudong.css?v=201509025">
+</head>
+<body>
+    <script>
+        (function(win) {
+            var html = document.documentElement;
+                function setRem(){
+                    var width = document.body.offsetWidth/10;
+                    html.style.fontSize=width+"px";
+                }
+                setRem();
+                win.onresize = setRem;
+        })(window);
+    </script>
+    <div class="wrapper">
+        <div class="contain begining">
+            <img src="./assets/images/shake.png" alt="&#x5C0F;&#x72EE;&#x5B50;" data-src="./assets/images/shake.png">
+        </div>
+        <div class="tips2">
+            <p>拼命摇!拿大奖咯!</p>
+        </div>
+    </div>
+    <!-- <button id="trigger">点我摇动</button> -->
+    <div class="lion"></div>
+    <div class="game-tips hide">游戏还未开始哦~</div>
+    <audio src="music/shake.mp3?20150902" id="shake"></audio>
+    <script src="http://m.suning.com/RES/wap/common/script/lib/zepto/1.1.4/zepto.min.js"></script>
+    <script src="http://www.rubyless.com:3200/socket.io/socket.io.js"></script>
+    <script src="./assets/js/js.cookie.js"></script>
+    <script src="./assets/js/purl.js"></script>
+    <script src="./assets/js/global.js?v=201509024"></script>
+    <script src="./assets/js/socket.js?v=201509021"></script>
+    <script src="./assets/js/shake_new.js?v=201509021"></script>
+
+    <script src="./assets/js/user_shake.js?v=201509026"></script>
+    <script>
+    // window.onclick = function(){        //模拟摇动
+    //     shakeYouPhone();
+    // }
+    function shakeYouPhone(){
+        var audio = document.getElementById('shake');
+        var shake = document.getElementsByClassName('begining')[0];
+        var className = shake.className;
+        audio.play();
+        if(className.indexOf('shaking')!=-1){
+        }else{
+            shake.className+=' shaking';
+            setTimeout(function(){
+                 shake.className='contain begining';
+            },1500);
+        }
+    }
+    </script>
+</body>
+</html>

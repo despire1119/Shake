@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>云店摇一摇</title>
+    <meta name="keywords" content="云店摇一摇" />
+    <meta name="description" content="云店摇一摇" />
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <link rel="shortcut icon" href="http://www.suning.com/favicon.ico" type="image/x-icon"/>
+    <!-- build:css ./assets/css/hudong.css?v=201509027 -->
+    <link rel="stylesheet" href="css/hudong.scss?v=201509027" />
+    <!-- endbuild -->
+</head>
+<body>
+    <script>
+        (function(win) {
+            var html = document.documentElement;
+                function setRem(){
+                    var width = document.body.offsetWidth/10;
+                    html.style.fontSize=width+"px";
+                }
+                setRem();
+                win.onresize = setRem;
+        })(window);
+    </script>
+    <div class="wrapper">
+        <div class="award" id="win" style="color: #666;">
+            <h2>恭喜你!</h2>
+            <p>CONGRATULATIONS</p>
+            <h2>第<strong class="J-rank"></strong>名</h2>
+            <p class="tip">您用时<span class="J-time"></span><span class="hide J-get">，快去领取奖品吧</span></p>
+            <a id="getAward" href="javascript:void(0)" class="get-award J-get">领取奖品</a>
+            <p class="tip hide J-get">为了保证您顺利拿到奖品，请不要关闭领奖页面。尽快去领奖哦</p>
+            <p class="tip hide J-all-out">奖品已经被抢光了，下次要手快哦！</p>
+            <p class="tip hide J-not-get" style="margin-top:30px">但您的领奖次数已经用完，不能再领奖咯，把机会留给其他人吧！</p>
+        </div>
+        <!-- 未中奖 -->
+        <div class="award" id="fail">
+            <h2>再接再厉</h2>
+            <p>MAKE PERSISTENT EFFORTS</p>
+            <img src="images/not-award.png" baseurl="./assets/" alt="小狮子">
+            <p class="tip">你用了<span class="J-time"></span>！手慢了，下次继续努力</p>
+        </div>
+    </div>
+    <div class="lion lion2"></div>
+    <script src="http://m.suning.com/RES/wap/common/script/lib/zepto/1.1.4/zepto.min.js"></script>
+    <script src='http://www.rubyless.com:3200/socket.io/socket.io.js'></script>
+    <!-- build:js ./assets/js/js.cookie.js -->
+    <script src='js/js.cookie.js'></script>
+    <!-- endbuild -->
+    <!-- build:js ./assets/js/purl.js -->
+    <script src='js/purl.js'></script>
+    <!-- endbuild -->
+    <!-- build:js ./assets/js/global.js?v=201509024 -->
+    <script src='js/global.js?v=201509024'></script>
+    <!-- endbuild -->
+    <!-- build:js ./assets/js/socket.js?v=201509021 -->
+    <script src='js/socket.js?v=201509021'></script>
+    <!-- endbuild -->
+
+    <!-- build:js ./assets/js/user_result.js?v=201509015 -->
+    <script src='js/user_result.js?v=201509015'></script>
+    <!-- endbuild -->
+
+</body>
+</html>

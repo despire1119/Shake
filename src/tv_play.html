@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>云店摇一摇</title>
+    <meta name="keywords" content="云店摇一摇" />
+    <meta name="description" content="云店摇一摇" />
+    <link rel="shortcut icon" href="http://www.suning.com/favicon.ico" type="image/x-icon"/>
+    <!-- build:css ./assets/css/hudongtv.css?v=201509021 -->
+    <link rel="stylesheet" href="css/hudongtv.scss?v=201509021" />
+    <!-- endbuild -->
+</head>
+<body>
+<div class="race">
+    <div class="user user1 clearfix hide" data-uid="" data-count="">
+        <div class="user-ifo l">
+            <span><img src="images/wx_pic_default.jpg" baseurl="./assets/" alt="用户头像"></span>
+            <p>用户</p>
+        </div>
+        <img src="images/car1.png" alt="汽车" class="car l" baseurl="./assets/">
+        <strong class="number hide"></strong>
+    </div>
+    <div class="user user2 clearfix hide" data-uid="" data-count="">
+        <div class="user-ifo l">
+            <span><img src="images/wx_pic_default.jpg" baseurl="./assets/" alt="用户头像"></span>
+            <p>用户</p>
+        </div>
+        <img src="images/car2.png" alt="汽车" class="car l" baseurl="./assets/">
+        <strong class="number hide"></strong>
+    </div>
+    <div class="user user3 clearfix hide" data-uid="" data-count="">
+        <div class="user-ifo l">
+            <span><img src="images/wx_pic_default.jpg" baseurl="./assets/" alt="用户头像"></span>
+            <p>用户</p>
+        </div>
+        <img src="images/car3.png" alt="汽车" class="car l" baseurl="./assets/">
+        <strong class="number hide"></strong>
+    </div>
+    <div class="user user4 clearfix hide" data-uid="" data-count="">
+        <div class="user-ifo l">
+            <span><img src="images/wx_pic_default.jpg" baseurl="./assets/" alt="用户头像"></span>
+            <p>用户</p>
+        </div>
+        <img src="images/car4.png" alt="汽车" class="car l" baseurl="./assets/">
+        <strong class="number hide"></strong>
+    </div>
+    <div class="user user5 clearfix hide" data-uid="" data-count="">
+        <div class="user-ifo l">
+            <span><img src="images/wx_pic_default.jpg" baseurl="./assets/" alt="用户头像"></span>
+            <p>用户</p>
+        </div>
+        <img src="images/car5.png" alt="汽车" class="car l" baseurl="./assets/">
+        <strong class="number hide"></strong>
+    </div>
+    <div class="user user6 clearfix hide" data-uid="" data-count="">
+        <div class="user-ifo l">
+            <span><img src="images/wx_pic_default.jpg" baseurl="./assets/" alt="用户头像"></span>
+            <p>用户</p>
+        </div>
+        <img src="images/car1.png" alt="汽车" class="car l" baseurl="./assets/">
+        <strong class="number hide"></strong>
+    </div>
+    <div class="user user7 clearfix hide" data-uid="" data-count="">
+        <div class="user-ifo l">
+            <span><img src="images/wx_pic_default.jpg" baseurl="./assets/" alt="用户头像"></span>
+            <p>用户</p>
+        </div>
+        <img src="images/car2.png" alt="汽车" class="car l" baseurl="./assets/">
+        <strong class="number hide"></strong>
+    </div>
+    <div class="user user8 clearfix hide" data-uid="" data-count="">
+        <div class="user-ifo l">
+            <span><img src="images/wx_pic_default.jpg" baseurl="./assets/" alt="用户头像"></span>
+            <p>用户</p>
+        </div>
+        <img src="images/car3.png" alt="汽车" class="car l" baseurl="./assets/">
+        <strong class="number hide"></strong>
+    </div>
+    <div class="start-line"></div>
+    <div class="start-line2"></div>
+</div>
+<div class="count-bg">
+    <div class="count">5</div>
+</div>
+<audio src="music/readyGo.mp3" id="ready-go"></audio>
+<audio src="music/race.mp3" id="race" loop></audio>
+
+
+<script src="http://res.suning.cn/public/v3/js/jquery.js"></script>
+<!-- build:js ./assets/js/purl.js -->
+<script src='js/purl.js'></script>
+<!-- endbuild -->
+
+<!-- build:js ./assets/js/global.js?v=201509024 -->
+    <script src='js/global.js?v=201509024'></script>
+    <!-- endbuild -->
+<script src='http://www.rubyless.com:3200/socket.io/socket.io.js'></script>
+<!-- build:js ./assets/js/socket.js?v=201509021 -->
+<script src='js/socket.js?v=201509021'></script>
+<!-- endbuild -->
+
+<!-- build:js ./assets/js/tv_play.js?v=201509023 -->
+<script src='js/tv_play.js?v=201509023'></script>
+<!-- endbuild -->
+
+    <script>
+    var hudongtv = (function(o){
+        var num = 5,timeId;
+        var globalVar=1;
+        o.countDown=function(func){      //倒计时
+            timeId = setTimeout(function(){
+                o.countDown(func);
+            },1000);
+            var readyGoBgAudio = document.getElementById('ready-go');
+            if(readyGoBgAudio){readyGoBgAudio.play();}  //倒计时开始，同时播放引擎声
+            if(num!=0){
+                $('.count').text(num).addClass('count-big');
+                num--;
+                if(num==1){
+                    var readyGoAudio = document.getElementById('ready-go');
+                    if(readyGoAudio){readyGoAudio.play();}  //倒计时最后一秒，播放ready go
+                }
+            }else{
+                func();
+                clearTimeout(timeId);
+                $('.count-bg').hide();
+                $('#ready-go').remove();
+                // //使用web worker模拟数据传输
+                // var worker  = new Worker("worker.js");
+                // worker.onmessage = function(event){
+                //     hudongtv.beginGame(event.data);
+                // };
+            }
+
+        };
+        //开始赛车
+        o.beginGame = function(data,countNum,maxNum, callback){
+            var len = data.length;
+            if(len){
+                for(var i=0;i<len;i++){
+                    if($(".user:hidden").length){
+                        $('.user').eq(i).removeClass('hide');
+                    }
+                    if(data[i].shaking_num>=countNum){
+                        var getFirstAudio = document.getElementById('get-first');
+                        if(getFirstAudio){getFirstAudio.play();}  //有人到达终点了
+                    }
+                }
+                //data.sort(compare("shaking_num"));  //按次数从大到小排
+                var users  = $('.user').not(':hidden');
+                var usersLen = users.length;
+                var flag = 0;
+                users.each(function(index,ele){
+                    var distance = (1180/countNum)*data[index].shaking_num;
+                    var id = data[index].openid;
+                    var avatar = data[index].wx_pic;
+                    var nickname = data[index].nickname;
+                    if($('#'+id).length){
+                        if(distance>1180){
+                            $('#'+id).css('left',1345);
+                        }else{
+                            $('#'+id).css('left',165+distance);
+                            $('#'+id).find('.user-ifo img').attr('src',avatar);
+                            $('#'+id).find('p').text(nickname);
+                        }
+                    }else{
+                        var notRacing = users.not('.racing');
+                        if($('.racing').length<maxNum){
+                            notRacing.eq(0).addClass('racing');
+                            notRacing.eq(0).attr('id',id);
+                            notRacing.eq(0).css('left',165+distance);
+                            users.not('.racing').eq(0).find('.user-ifo img').attr('src',avatar);
+                            users.not('.racing').eq(0).find('p').text(nickname);
+                        }else{
+                            var arr=[];
+                            $('.racing').each(function(index,ele){
+                                arr[index]={};
+                                arr[index].count = parseFloat($(ele).css('left'));
+                                arr[index].id = $(ele).attr('id');
+                                arr.sort(compare("count"));
+                            });
+                            var len = arr.length-1-flag;
+                            var ids=arr[len].id;
+                            if(distance>1180){
+                                $('#'+ids).css('left',1345);
+                            }else{
+                                $('#'+ids).css('left',165+distance);
+                                $('#'+ids).find('.user-ifo img').attr('src',avatar);
+                                $('#'+ids).find('p').text(nickname);
+                            }
+                            $('#'+ids).attr('id',id);
+                            flag++;
+                        }
+                    }
+                });
+                for(var i=0;i<len;i++){
+                    if(data[i].shaking_num>=countNum){
+                        if(!$('#'+data[i].openid).length||$('#'+data[i].openid).hasClass('move-to-end')){
+
+                        }else{
+                            $('#'+data[i].openid).addClass('move-to-end')
+                            $('#'+data[i].openid).find('.number').html(globalVar).show();
+                            globalVar++;
+                        }
+                    }
+                }
+                //如果都到了终点，就结束游戏
+                if(data[data.length-1].shaking_num>=countNum){
+                    setTimeout(function(){
+                        callback();
+                    }, 1000);
+                }
+            }
+
+        };
+         function compare(propertyName) {
+            return function (object1, object2) {
+                var value1 = object1[propertyName];
+                var value2 = object2[propertyName];
+                if (value2 < value1) {
+                    return -1;
+                }
+                else if (value2 > value1) {
+                    return 1;
+                }
+                else {
+                    return 0;
+                }
+            }
+        }
+        return o;
+    })(hudongtv||{});
+    </script>
+</body>
+</html>

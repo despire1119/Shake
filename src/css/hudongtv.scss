@@ -1,0 +1,131 @@
+/*
+ * Name:		hudongtv.css
+ * Introduction:	hudongtv
+ * Author：		15020221
+ * Time:		2015-08-18
+ */
+@charset "utf-8";
+body,h1,h2,h3,h4,h5,h6,hr,p,dl,dt,dd,ul,ol,li,form,fieldset,legend,button,input,textarea,th,td{margin:0;padding:0;}
+body{height: 100%;background:#FFF;color:#333;font-family: arial,"Microsoft Yahei";}
+h1,h2,h3,h4,h5,h6{font-size:100%;}
+em,i{font-style:normal;}
+b {font-weight: normal;}
+fieldset,img{border:0;}
+a{color:#333;text-decoration:none;outline:none;}
+li {list-style-type: none;}
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
+.clear{clear:both;display:block;height:0;overflow:hidden;font-size:0;}
+.hide{display:none;}
+.l{float:left;}
+.r{float:right;}
+
+
+body {width: 1920px;height: 1079px;border-top: 1px solid #FFC22C;background: #FFC22C url(images/full_bg.png) 0 0 no-repeat;color: #000;overflow: hidden;}
+/*游戏选择页*/
+.wrapper .title2 {margin-top: 100px;text-align: center;color: #FFF501;font-size: 40px;}
+.wrapper .title2 h1{ }
+.wrapper .title2 h3{margin-top: 20px;font-size: 50px;}
+.wrapper .title2 p{margin-top: 20px;margin-bottom: 30px;font-size: 30px;color: #FFF;font-weight: bold;}
+.wrapper .title2 span {margin-left: 30px;}
+.wrapper .list-box {width: 1170px;height: 580px;margin: 10px auto 0;overflow: hidden;}
+.wrapper .list-box ul {width: 1170px;height: 580px;}
+.wrapper .list-box li {float: left;width: 1170px;height: 580px;}
+.wrapper .list-box .game {width: 95%;height: 70px;border: 3px solid #FFC740;border-radius: 10px;margin: 0 auto 30px;line-height: 70px;font-size: 30px;letter-spacing: 2px;-webkit-transition: all 0.5s;transition: all 0.5s;}
+.wrapper .list-box .selected {background: #FFC740;}
+.wrapper .list-box .game b {width: 60px;height: 60px;margin: 5px;border-radius: 5px;background: #FFF;color: #FFC740;font-size: 40px;line-height: 60px;text-align: center;font-weight: bold}
+.wrapper .list-box .game span {color: #666;font-weight: bold;}
+.wrapper .list-box .selected span {color: #FFF;}
+.wrapper .list-box .game strong {margin-right: 20px;color: #666}
+.wrapper .list-box .selected strong {color: #FFF}
+.ope-tip {width: 752px;height: 44px;margin: 10px auto;background: url(images/ope.png) 0 0 no-repeat}
+.code-mask {position: fixed;left: 0;top: 0;width: 1920px;height: 1080px;background:rgba(0,0,0,0.3);}
+.code-mask .code {position: absolute;left: 35%;top: 5%;width: 400px;height: 260px;margin-left: -200px;border: 3px solid #000;border-radius: 10px;background: #FFF;text-align: center;font-size: 30px;}
+.code-mask .code h3 {margin: 40px 0 20px;}
+.code-mask .code input {width: 150px;height: 30px;padding: 10px;border: 3px solid #CCC;border-radius: 5px;color: #666;outline: none;text-align: center;}
+.code-mask .code .ope {margin-top: 10px;}
+.code-mask .code a {display: inline-block;width: 120px;height: 40px;border: 3px solid #FFF;border-radius: 10px;line-height: 40px;text-align: center;background: #FFC22C;color: #FFF;font-size: 20px;}
+.code-mask .code .cancel {background: #DDD;color: #000;}
+.code-mask .code .focus {border: 3px solid #000;}
+.code-mask .code p {margin-top: 5px;color: #F00;font-size: 20px}
+
+/*主页*/
+.wrapper {position: relative;width: 1408px;height: 910px;margin:80px auto 0;background: url(images/dialog_bg.png) 0 0 no-repeat;overflow: hidden;}
+.wrapper .title {height: 152px;margin-top: 110px;text-align: center;}
+.wrapper .title p {display: inline-block;height: 77px;font-size: 60px;font-weight: bold;}
+.wrapper .title p b {display: inline-block;width: 34px;height: 60px;background: url(images/l-arrow.png) 0 0 no-repeat;}
+.wrapper .title p .r-arrow {margin-top: 20px;background: url(images/r-arrow.png) right bottom no-repeat;}
+.wrapper .title img {display: block;height: 75px;margin: 0 auto;}
+.wrapper .num {position: relative;height: 50px;margin-top: 20px;font-size: 42px;text-align: center;}
+.wrapper .list {font-size: 50px;}
+.wrapper .num span {position: relative;}
+.wrapper .num strong {padding: 0 5px;font-size: 62px;color: #F5A623;line-height: 2px}
+.wrapper .num b {display: block;position: absolute;right: -220px;top: -5px;width: 150px;height: 55px;border-radius: 10px;font-size: 24px;line-height: 55px;background: #EF7536;color: #FFF;border:none}
+.wrapper .num .once-again {right: 100px;top: 10px;}
+.wrapper .line {width: 92%;height: 15px;margin: 30px auto;border-radius: 10px;background: #F1E801;}
+.wrapper .detail {width: 92%;margin: 0 auto;}
+.wrapper .ecode{width: 400px;height:400px;}
+.wrapper .ecode img {display: block;width: 400px;height: 400px;}
+.wrapper .detail-con {margin-left: 80px;width: 810px;}
+.wrapper .detail-con h1 {font-size: 42px;font-weight: normal;}
+.wrapper .detail-con p {font-size:30px ;height: 105px;margin: 10px 0 35px;word-break: break-all;overflow: hidden;}
+.wrapper .detail-con .award div {width: 160px;margin-right: 40px;text-align: center;font-size: 20px;}
+.wrapper .detail-con .award img {width: 160px;height: 160px;margin-bottom: 5px;border-radius: 30px;}
+/*倒计时*/
+.count-bg {position: fixed;left: 0;top: 0;width: 1920px;height: 1080px;background: rgba(0,0,0,0.6);z-index: 9999}
+.count {position: absolute;left: 0;top: 0;right: 0;bottom: 0;margin: auto;width: 250px;height:535px ;font-weight: bold;font-size: 500px;color: #FFF;-webkit-text-shadow:15px 0 0 #000;text-shadow:15px 0 0 #000;}
+@-webkit-keyframes moves {
+    0% {-webkit-transform: scale(1.5);transform: scale(1.5)}
+    100% {transform: scale(1.5);transform: scale(1)}
+}
+@keyframes moves {
+    0% {-webkit-transform: scale(1.5);transform: scale(1.5)}
+    100% {transform: scale(1.5);transform: scale(1)}
+}
+.count-big {-webkit-animation:moves 1s 5;animation:moves 1s 5;}
+/*比赛*/
+.race {width: 1920px;height: 1080px;background-image:url(images/full_bg2.png);}
+.race .start-line {position: absolute;left: 255px;top: 157px;width: 126px;height: 822px;background: url(images/start_line.png) 0 0 no-repeat;z-index: 999;}
+.race .start-line2 {position: absolute;left: 371px;top: 175px;width: 10px;height: 786px;background: rgba(0,0,0,0.3);z-index: 9;}
+.race .user {position: absolute;width: 210px;height: 65px;left: 165px;z-index: 99;-webkit-transition: all 0.5s;transition: all 0.5s;}
+.race .user1 {top:490px;}
+.race .user2 {top:585px;}
+.race .user3 {top:395px;}
+.race .user4 {top:680px;}
+.race .user5 {top:300px;}
+.race .user6 {top:775px;}
+.race .user7 {top:205px;}
+.race .user8 {top:870px;}
+.race .user .user-ifo {position: relative;width: 75px;height: 65px}
+.race .user .user-ifo span {display: block;width: 50px;height: 50px;border: 2px solid #FFF;margin: 0 auto;border-radius: 50%;overflow: hidden;}
+.race .user .user-ifo img {display: block;width: 50px;height: 50px;}
+.race .user .user-ifo p {position: absolute;left: 0;bottom: 5px;width: 100%;height: 14px;padding:1px 4px;border-radius: 5px;font-size: 12px;line-height: 14px;color: #000;background: #FFF;overflow: hidden;box-sizing:border-box;text-align: center}
+.race .user .car {width: 135px;height: 65px;}
+.race .user .number {position: absolute;right: -170px;top: 12px;font-size: 40px;color: #F80;-webkit-transition: all 1s;
+-o-transition: all 0.5s;
+transition: all 0.5s;}
+/*获奖名单*/
+.wrapper .rank {position: relative;width: 92%;height: 460px;margin: 0 auto;text-align: center;}
+.wrapper .rank .rank-list {position: absolute;bottom: 0;width: 80px;height: 460px;}
+.wrapper .rank .rank-list1 {left:670px}
+.wrapper .rank .rank-list2 {left:550px}
+.wrapper .rank .rank-list3 {left:790px}
+.wrapper .rank .rank-list4 {left:430px}
+.wrapper .rank .rank-list5 {left:910px}
+.wrapper .rank .rank-list6 {left:310px}
+.wrapper .rank .rank-list7 {left:190px}
+.wrapper .rank .rank-list8 {left:1030px}
+.wrapper .rank .rank-list span {display: block;position: absolute;bottom: 0;left: 0;width: 100%;height: 40px;font-size: 16px;line-height: 40px;}
+.wrapper .rank .list {position: absolute;bottom: 40px;left: 0;width: 100%;height: 90px;padding-top: 10px;border-radius:8px 8px 0 0;background: #DDD;font-size: 35px;color: #FFF;}
+.wrapper .rank .rank-list1 .list {height: 290px;background: #D4567B;}
+.wrapper .rank .rank-list2 .list {height: 270px;background: #FFD400;}
+.wrapper .rank .rank-list3 .list {height: 230px;background: #F5A623;}
+.wrapper .rank .rank-list4 .list {height: 170px;}
+.wrapper .rank .rank-list5 .list {height: 150px;}
+.wrapper .rank .rank-list6 .list {height: 120px;}
+.wrapper .rank .rank-list7 .list {height: 100px;}
+.wrapper .rank .rank-list8 .list {height: 50px;}
+.wrapper .rank .user-ifo {position: absolute;width: 100%;left: 0;top: -140px;color: #000}
+.wrapper .rank .user-ifo p {height: 40px;font-size: 20px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+.wrapper .rank .user-ifo img {display: block;width: 80px;height: 80px;border-radius: 50%;}
+
+
